@@ -18,6 +18,10 @@ Statistics: calculateStatistics summarizes the data, showing the total number of
 
 Technical Observations (Potential Bugs):
 
+fluwchart:
+
+https://drive.google.com/file/d/1X_Nl8w9a1fq4_Wr2oiwzmDdcLg0Z8I3Q/view?usp=sharing
+
 Key Name Inconsistency: In addProduct, you define the name as 'product', but in delproduct, searchProduct, and updateProduct, you try to access it using 'name'. This will cause a KeyError.
 
 Variable Naming: You are using list as a variable name. Since list is a reserved keyword in Python, it is better to use something like inventory or product_list.

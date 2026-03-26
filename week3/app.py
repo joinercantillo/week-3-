@@ -1,6 +1,9 @@
 from addProduct import addProduct
 from showInv import showInv
 from statistics import calculateStatistics
+from week3.delProduct import delproduct
+from week3.seacrh import searchProduct
+from week3.update import updateProduct
 list = []
 menu =["1 - Add a product", 
        "2 - Show the inventory", 
@@ -22,15 +25,16 @@ while option != 7:
         addProduct(list)
     elif option == 2:
        showInv(list)
-            
     elif option == 3:
        calculateStatistics(list)
     elif option == 4:
         print("DELETE PRODUCT")
+        delproduct(list)
     elif option == 5:
         print("SEARCH PRODUCT")
+        searchProduct(list)
     elif option == 6:
         print("UPDATE PRODUCT")
-
+        updateProduct(list)
     elif option == 7:
         print("GOOD BYE...")

@@ -6,36 +6,42 @@ from services.statistics import calculateStatistics
 from services.delProduct import delproduct
 from services.seacrh import searchProduct
 from services.update import updateProduct
-list = []
-menu =["1 - Add a product", 
-       "2 - Show the inventory", 
-       "3 - Calculate statistics",
-        '4 - delete product', 
-        '5 - search product',
-        '6 - update product', 
-        '7 - EXIT']
-option = 5 
-totalcost = 0
+
+inventory = []
+menu = ["1 - Add Product", 
+        "2 - Show Inventory", 
+        "3 - Calculate Statistics",
+        "4 - Delete Product", 
+        "5 - Search Product",
+        "6 - Update Product", 
+        "7 - EXIT"]
+
+option = 0
+
 while option != 7: 
-    print("\n--- MENU---")
+    print("\n--- MAIN MENU ---")
     for item in menu:
         print(item)
     
-    option = int(input("Select an option (1-7): "))
+    try:
+        option = int(input("Select an option (1-7): "))
+    except ValueError:
+        print("Please enter a valid number.")
+        continue
 
     if option == 1:
-        addProduct(list)
+        inventory = addProduct(inventory)
     elif option == 2:
-       showInv(list)
-            
+        inventory = showInv(inventory)
     elif option == 3:
-       calculateStatistics(list)
+        calculateStatistics(inventory)
     elif option == 4:
-        print("DELETE PRODUCT")
+        inventory = delproduct(inventory)
     elif option == 5:
-        print("SEARCH PRODUCT")
+        searchProduct(inventory)
     elif option == 6:
-        print("UPDATE PRODUCT")
-
+        inventory = updateProduct(inventory)
     elif option == 7:
-        print("GOOD BYE...")
+        print("\nGOODBYE!")
+    else:
+        print("Invalid option. Please select between 1-7.")

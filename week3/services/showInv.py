@@ -1,7 +1,9 @@
 def showInv(list):
-    
-    if not list:
-        print("The list is empty")
-    for p in list:
-        print(f"- {p['product']}: ${p['cost']} (stock: {p['Quantity']})")
-    return list             
+    import csv
+    with open('inventory.csv', "r", newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        listdat = list(reader)
+    return list
+myinventory = showInv('inventory.csv')
+for i in myinventory:
+    print(i)
